@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates(:username, {
     :presence => true,
     :uniqueness => { :case_sensitive => false },
-  })
+    })
 
   # Association accessor methods to define:
   
@@ -56,3 +56,4 @@ class User < ApplicationRecord
   has_many(:feed, through: :leaders, source: :own_photos)
   # User#discover: returns rows from the photos table associated to this user through its leaders (the leaders' liked_photos)
   has_many(:discover, through: :leaders, source: :liked_photos)
+  end
